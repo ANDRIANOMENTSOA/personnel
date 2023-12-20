@@ -1,0 +1,41 @@
+<mat-card>
+  <mat-card-content>
+    <p>{{ "personnel.nom" | translate }}: {{ compte?.nom }}</p>
+    <p>{{ "personnel.prenom" | translate }}: {{ compte?.prenom }}</p>
+    <p>{{ "general.email" | translate }}: {{ compte?.email }}</p>
+    <p>{{ "personnel.fonction" | translate }}: {{ compte?.fonction?.nom }}</p>
+    <p>{{ "personnel.telephone" | translate }}: {{ compte?.telephone }}</p>
+    <p>
+      {{ "personnel.date_naissance" | translate }}:
+      {{ compte?.date_naissance | date : "dd/MM/yyyy" }}
+    </p>
+    <p>
+      {{ "personnel.soldeConge" | translate }}:
+      {{ compte?.soldeConge }}
+    </p>
+    <p>{{ "personnel.signature" | translate }}</p>
+    <div class="picture">
+      <img
+        *ngIf="!linkSignatureImage"
+        src="../../../assets/images/signature.PNG"
+        class="responsive signature"
+      />
+      <img
+        *ngIf="linkSignatureImage"
+        src="{{ linkSignatureImage }}"
+        width="250"
+        height="150"
+        (error)="NoSignature()"
+        class="responsive signature"
+      />
+    </div>
+    <button
+      mat-raised-button
+      color="primary"
+      style="margin-top: 10px"
+      (click)="DialogSignature()"
+    >
+      {{ "personnel.modifierSignature" | translate }}
+    </button>
+  </mat-card-content>
+</mat-card>

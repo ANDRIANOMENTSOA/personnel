@@ -1,0 +1,67 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <!--<mat-toolbar>Menu</mat-toolbar>-->
+    <mat-nav-list style="margin-bottom: 20px">
+      <a mat-list-item (click)="deconnexion()">
+        <mat-icon>logout</mat-icon>
+        {{ "general.deconnexion" | translate }}</a
+      >
+    </mat-nav-list>
+    <app-langue></app-langue>
+    <mat-nav-list>
+      <a mat-list-item routerLink="conge">
+        <mat-icon>beach_access</mat-icon>
+        {{ "conge.titre" | translate }}
+      </a>
+      <a mat-list-item routerLink="personnel/compte">
+        <mat-icon>manage_accounts</mat-icon>
+        {{ "general.monCompte" | translate }}</a
+      >
+      <a mat-list-item routerLink="conge/liste" *ngIf="direction">
+        <mat-icon>list</mat-icon>
+        {{ "conge.liste" | translate }}</a
+      >
+      <a mat-list-item routerLink="personnel" *ngIf="direction">
+        <mat-icon>person_add</mat-icon>
+        {{ "conge.personnel" | translate }}</a
+      >
+      <a mat-list-item routerLink="fonction" *ngIf="direction">
+        <mat-icon>badge</mat-icon>
+        {{ "personnel.fonction" | translate }}</a
+      >
+      <a mat-list-item routerLink="reglage" *ngIf="direction">
+        <mat-icon>settings</mat-icon>
+        {{ "reglage.titre" | translate }}</a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>
+        {{
+          reglage ? reglage.nom_societe : ("general.Title" | translate)
+        }}</span
+      >
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <div style="margin: 20px 20px 20px 20px">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

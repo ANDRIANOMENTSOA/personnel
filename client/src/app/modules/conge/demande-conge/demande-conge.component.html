@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-md-4">
+    <mat-card>
+      <mat-card-content>
+        <h4>{{ titleForm | translate }}</h4>
+        <form (submit)="SaveConge()" [formGroup]="formConge">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>{{ "conge.dateDebut" | translate }}</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              formControlName="date_debut"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>{{ "conge.dateFin" | translate }}</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker2"
+              formControlName="date_fin"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker2"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>{{ "conge.resposableInforme" | translate }}</mat-label>
+            <mat-select formControlName="resposable_informe">
+              <mat-option [value]="true">{{
+                "general.oui" | translate
+              }}</mat-option>
+              <mat-option [value]="false">{{
+                "general.non" | translate
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            [disabled]="!formConge.valid"
+          >
+            {{ "action.enregistrer" | translate }}
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="col-md-8">
+    <h3>{{ "conge.monListes" | translate }}</h3>
+    <app-liste-conge
+      [newId]="refrechId"
+      [personnelId]="personnelId"
+    ></app-liste-conge>
+  </div>
+</div>

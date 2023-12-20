@@ -1,0 +1,17 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger>
+  <mat-icon matTooltip="{{ 'action.supprimer' | translate }}">delete</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <div class="container" style="text-align: center">
+    {{ "general.confirmationSuppr" | translate }}
+    <p *ngIf="info" style="font-weight: bold">{{ info }}</p>
+    <div class="button-row">
+      <button mat-raised-button color="warn" (click)="actionOui()">
+        {{ "general.oui" | translate }}
+      </button>
+      <button mat-raised-button (click)="actionNon()">
+        {{ "general.non" | translate }}
+      </button>
+    </div>
+  </div>
+</mat-menu>

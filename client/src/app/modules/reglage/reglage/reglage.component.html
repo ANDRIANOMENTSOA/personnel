@@ -1,0 +1,62 @@
+<mat-card>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-md-4">
+        <h4>{{ titleForm | translate }}</h4>
+        <form (submit)="SaveReglage()" [formGroup]="formReglage">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>{{ "reglage.nomSociete" | translate }}</mat-label>
+            <input matInput formControlName="nom_societe" />
+          </mat-form-field>
+          <mat-form-field class="full-width" appearance="fill" *ngIf="false">
+            <mat-label>{{ "reglage.modelConge" | translate }}</mat-label>
+            <input matInput formControlName="model_conge" />
+          </mat-form-field>
+
+          <mat-label>{{ "reglage.modelConge" | translate }}</mat-label>
+          <app-telecharger [afficheTitre]="false" (fileId)="getFileId($event)">
+          </app-telecharger>
+          <button
+            mat-icon-button
+            color="primary"
+            [disabled]="!formReglage.valid"
+            (click)="telechargeModel()"
+          >
+            <mat-icon>cloud_download</mat-icon></button
+          ><br />
+          <!--
+            <mat-form-field class="full-width" appearance="fill">
+            <mat-label>{{ "reglage.logo" | translate }}</mat-label>
+            <input matInput formControlName="logo" />
+          </mat-form-field>
+          -->
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            [disabled]="!formReglage.valid"
+          >
+            {{ "action.enregistrer" | translate }}
+          </button>
+        </form>
+      </div>
+      <div class="col-md-4">
+        {{ "conge.miseAjour" | translate }}
+        <form [formGroup]="formMiseAjour">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label> {{ "conge.miseAjour" | translate }}</mat-label>
+            <input matInput formControlName="soldePlus" />
+          </mat-form-field>
+        </form>
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="!formMiseAjour.valid"
+          (click)="miseAjourConge()"
+        >
+          {{ "action.enregistrer" | translate }}
+        </button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

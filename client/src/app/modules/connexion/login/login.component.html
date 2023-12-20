@@ -1,0 +1,43 @@
+<div class="container">
+  <mat-card class="card-connexion">
+    <mat-card-header>
+      <mat-card-title>Connexion</mat-card-title>
+      <!--
+        <mat-card-subtitle>Ergomada</mat-card-subtitle>
+      -->
+    </mat-card-header>
+    <mat-card-content>
+      <img
+        style="text-align: center"
+        src="../../../../assets/images/ergomada.svg"
+        height="100px"
+        width="200px"
+      />
+      <form [formGroup]="form" (submit)="connexion()">
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" />
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Mot de passe</mat-label>
+          <input matInput type="password" formControlName="password" />
+        </mat-form-field>
+        <div class="button-row" style="text-align: right">
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            [disabled]="!form.valid"
+          >
+            Connexion
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+    <mat-card-actions *ngIf="false">
+      <label class="label-lien" (click)="motdepassOublie()">
+        Mot de passe oublié ?
+      </label>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,83 @@
+{
+  "general": {
+    "Title": "Ergomada fr",
+    "langue": "Langue",
+    "recherche": "Recherche",
+    "problemeServeur": "Problème de serveur ",
+    "confirmationSuppr": "Êtes-vous sûr de supprimer ?",
+    "oui": "Oui",
+    "non": "Non",
+    "email": "Email",
+    "DonwloadFile": "Télécharger un fichier",
+    "deconnexion": "Déconnexion",
+    "monCompte": "Mon compte"
+  },
+  "action": {
+    "enregistrer": "Enregistrer",
+    "enregistree": "Enregistrée",
+    "supprimer": "Supprimer",
+    "supprime": "Supprimé",
+    "modifier": "Modifier",
+    "telecharger": "Télécharger",
+    "valider": "Valider",
+    "effacer": "Effacer"
+  },
+  "fonction": {
+    "nouveaux": "Créer une fonction",
+    "modifier": "Modifier une fonction",
+    "nom": "Nom",
+    "existe": "Fonction existe déja",
+    "utiliser": "Fonction en cours d'utilisation"
+  },
+  "personnel": {
+    "nouveaux": "Créer un personnel",
+    "modifier": "Modifier un personnel",
+    "nom": "Nom",
+    "existe": "Personnel existe déja",
+    "prenom": "Prénom",
+    "address": "Adresse",
+    "telephone": "Téléphone",
+    "situation_familiale": "Situation familiale",
+    "date_naissance": "Date de naissance",
+    "genre": "Genre",
+    "info_complementaire": "Information complémentaire",
+    "description_mission": "Description mission",
+    "fonction": "Fonction",
+    "signature": "Signature",
+    "modifierSignature": "Modifier signature",
+    "membreDirection": "Membre de la direction",
+    "soldeConge": "Solde de congé"
+  },
+  "conge": {
+    "titre": "Congé",
+    "nouveaux": "Demande congé",
+    "modifier": "Modifier a congé",
+    "personnel": "Personnel",
+    "dateDebut": "Date début",
+    "dateFin": "Date fin",
+    "resposableInforme": "Resposable informé",
+    "statut": "Statut",
+    "EnAttente": "Congé en Attente",
+    "Accepte": "Congé Accepté",
+    "Refuse": "Congé Refusé",
+    "AucunModelConge": "Aucun modèle de congé trouvé",
+    "confirm": "Vous voulez valider le congé ?",
+    "liste": "Liste Congé",
+    "miseAjour":"Misé a jour Congé",
+    "monListes":"Liste de mes congés"
+  },
+  "reglage": {
+    "titre": "Réglage",
+    "nouveaux": "Créer réglage",
+    "modifier": "Modifier réglage",
+    "nomSociete": "Nom société",
+    "logo": "Logo société",
+    "modelConge": "Model congé"
+  },
+  "signature": {
+    "dessiner": "Dessiner",
+    "image": "Image",
+    "telecharger": "Télécharger signature",
+    "saved":"Signature enregistrée"
+  }
+}

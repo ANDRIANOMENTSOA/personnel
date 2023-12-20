@@ -1,0 +1,79 @@
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="formSigntaure" novalidate>
+      <table>
+        <tr>
+          <td></td>
+          <td>
+            <mat-radio-group
+              formControlName="type"
+              (change)="changeType($event)"
+            >
+              <mat-radio-button color="primary" value="draw">{{
+                "signature.dessiner" | translate
+              }}</mat-radio-button>
+              <p></p>
+              <mat-radio-button color="primary" value="image">{{
+                "signature.image" | translate
+              }}</mat-radio-button>
+            </mat-radio-group>
+          </td>
+        </tr>
+        <tr *ngIf="!drawSignature">
+          <td></td>
+          <td>
+            <div class="picture">
+              <img
+                *ngIf="!linkSignatureImage"
+                src="../../../assets/images/signature.PNG"
+                class="responsive signature"
+              />
+              <img
+                *ngIf="linkSignatureImage"
+                src="{{ linkSignatureImage }}"
+                width="250"
+                height="150"
+                (error)="NoSignature()"
+                class="responsive signature"
+              />
+            </div>
+            <div class="bt-image">
+              <button
+                mat-raised-button
+                color="primary"
+                style="margin-top: 10px"
+                (click)="uploadSignature()"
+              >
+                {{ "signature.telecharger" | translate }}
+              </button>
+              <input
+                #fileUploadSignature
+                type="file"
+                accept="image/png , image/jpeg"
+                class="input_fileupload--hidden"
+                (change)="onSignatureSelected($event)"
+              />
+            </div>
+          </td>
+        </tr>
+        <br />
+        <tr *ngIf="drawSignature">
+          <td></td>
+          <td>
+            <ng-signature-pad
+              [width]="100"
+              [height]="70"
+              doneButtonText="{{ 'action.enregistrer' | translate }}"
+              clearButtonText="{{ 'action.effacer' | translate }}"
+              format="base64"
+              (done)="SaveSignature($event)"
+              doneButtonClass="mdc-button mdc-button--raised mat-mdc-raised-button mat-primary mat-mdc-button-base"
+              clearButtonClass="mdc-button mdc-button--raised mat-mdc-raised-button mat-accent mat-mdc-button-base"
+            >
+            </ng-signature-pad>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card-content>
+</mat-card>

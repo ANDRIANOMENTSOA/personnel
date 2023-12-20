@@ -1,0 +1,20 @@
+<ng-container *ngIf="!file">
+  {{ afficheTitre ? ("general.DonwloadFile" | translate) : "" }} :
+  <button mat-icon-button color="primary" (click)="uploadFile()">
+    <mat-icon>create_new_folder</mat-icon>
+  </button>
+  <input
+    #fileUpload
+    type="file"
+    accept="{{ acceptFile }}"
+    class="input_fileupload--hidden"
+    (change)="onFileSelected($event)"
+  />
+</ng-container>
+
+<ng-container *ngIf="file">
+  <span>{{ ":  " + file.name }}</span>
+  <button mat-icon-button color="accent" (click)="supprimer()">
+    <mat-icon>clear</mat-icon>
+  </button>
+</ng-container>

@@ -1,0 +1,19 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger>
+  <mat-icon matTooltip="{{ 'action.valider' | translate }}"
+    >offline_pin</mat-icon
+  >
+</button>
+<mat-menu #menu="matMenu">
+  <div class="container" style="text-align: center">
+    {{ "conge.confirm" | translate }}
+    <p *ngIf="info" style="font-weight: bold">{{ info }}</p>
+    <div class="button-row">
+      <button mat-raised-button color="primary" (click)="actionAccepter()">
+        Accepter
+      </button>
+      <button mat-raised-button color="warn" (click)="actionRefuser()">
+        Refuser
+      </button>
+    </div>
+  </div>
+</mat-menu>

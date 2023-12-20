@@ -1,0 +1,84 @@
+{
+  "general": {
+    "Title": "Ergomada en",
+    "langue": "Language",
+    "recherche": "Search",
+    "problemeServeur": "Server problem",
+    "confirmationSuppr": "Are you sur to delete ?",
+    "oui": "Yes",
+    "non": "No",
+    "email": "E-mail",
+    "DonwloadFile": "Download a file",
+    "deconnexion": "Logout",
+    "monCompte": "My account"
+  },
+  "action": {
+    "enregistrer": "Save",
+    "enregistree": "Saved",
+    "supprimer": "Delete",
+    "supprime": "Deleted",
+    "modifier": "Edit",
+    "telecharger": "Télécharger",
+    "valider": "Validate",
+    "effacer": "Clear"
+  },
+  "fonction": {
+    "nouveaux": "Create a function",
+    "modifier": "Modify a function",
+    "nom": "Name",
+    "existe": "Function already exists",
+    "utiliser": "Function in use"
+  },
+  "personnel": {
+    "nouveaux": "Create a personal",
+    "modifier": "Modify a personal",
+    "nom": "Name",
+    "existe": "Personal  already exists",
+    "prenom": "First name",
+    "address": "Adress",
+    "telephone": "Telephone",
+    "situation_familiale": "Family situation",
+    "date_naissance": "Date of Birth",
+    "genre": "Gender",
+    "info_complementaire": "Additional information",
+    "description_mission": "Mission description",
+    "fonction": "Function",
+    "signature": "Signature",
+    "modifierSignature": "Modify signature",
+    "membreDirection": "Member of management",
+    "soldeConge": "Leave balance",
+    "deconnexion": "Logout"
+  },
+  "conge": {
+    "titre": "Leave",
+    "nouveaux": "Create congé",
+    "modifier": "Modify a congé",
+    "personnel": "Personal",
+    "dateDebut": "Start date",
+    "dateFin": "End date",
+    "resposableInforme": "Informed manager",
+    "statut": "Status",
+    "EnAttente": "Leave pending",
+    "Accepte": "Leave accepted",
+    "Refuse": "Leave denied",
+    "AucunModelConge": "No leave templates found",
+    "confirm": "You want to validate the leave ?",
+    "liste": "Leave list",
+    "miseAjour":"Update leave",
+    "monListes":"List of my leave"
+  },
+  "reglage": {
+    "titre": "Setting",
+    "nouveaux": "Create setting",
+    "modifier": "Change setting",
+    "nomSociete": "Company Name",
+    "logo": "Company logo",
+    "modelConge": "Model conge"
+  },
+  "signature": {
+    "dessiner": "Draw",
+    "image": "Image",
+    "telecharger": "Download Signature",
+    "saved":"Saved signtaure"
+  }
+}

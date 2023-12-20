@@ -1,0 +1,97 @@
+<mat-card>
+  <mat-card-content>
+      <mat-form-field >
+    <mat-label>{{ "general.recherche" | translate }}</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="" #input />
+  </mat-form-field>
+  <table mat-table [dataSource]="dataSource" matSort class="matable">
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "conge.personnel" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ row.personnel.nom }} {{ row.personnel.prenom }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="debut">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "conge.dateDebut" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ row.date_debut | date: "dd/MM/yyyy" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fin">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "conge.dateFin" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let row">
+        {{ row.date_fin | date: "dd/MM/yyyy" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fonction">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "personnel.fonction" | translate }}
+      </th>
+      <td mat-cell *matCellDef="let row">{{ row.personnel.fonction.nom }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="statut">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ "conge.statut" | translate }}
+      </th>
+      <td mat-cell class="itemHide" *matCellDef="let row">
+        {{ row.statut | translate }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header start="asc"></th>
+      <td mat-cell *matCellDef="let row">
+        <div class="buttonMenu">
+          <button mat-icon-button (click)="modifier(row.id)" *ngIf="false">
+            <mat-icon matTooltip="{{ 'action.modifier' | translate }}"
+              >edit</mat-icon
+            >
+          </button>
+          <button mat-icon-button (click)="telecharger(row.assetId)">
+            <mat-icon matTooltip="{{ 'action.telecharger' | translate }}"
+              >cloud_download</mat-icon
+            >
+          </button>
+          <app-bouton-supprimer
+            [info]="row.statut"
+            (confirmation)="supprimer($event, row.id)"
+            *ngIf="
+              row.statut === 'conge.EnAttente' &&
+              row.personnelId === utilisateurEncour
+            "
+          ></app-bouton-supprimer>
+
+          <app-accepter
+            [info]="row.personnel.nom + ' ' + row.personnel.prenom"
+            (accepter)="actionConge($event, row.id)"
+            *ngIf="row.statut === 'conge.EnAttente'"
+          ></app-accepter>
+        </div>
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    #paginator
+    [length]="dataSource?.data?.length"
+    [pageIndex]="0"
+    [pageSize]="5"
+    [pageSizeOptions]="[5, 10, 20]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+  </mat-card-content>
+
+</mat-card>

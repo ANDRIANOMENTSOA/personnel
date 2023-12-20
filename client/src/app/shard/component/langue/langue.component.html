@@ -1,0 +1,14 @@
+<div class="container">
+  <label>
+    {{ "general.langue" | translate }}:
+    <select #langSelect (change)="changeLanuge(langSelect.value)">
+      <option
+        *ngFor="let lang of langue"
+        [value]="lang.key"
+        [selected]="lang.key === 'fr'"
+      >
+        {{ lang.description }}
+      </option>
+    </select>
+  </label>
+</div>
