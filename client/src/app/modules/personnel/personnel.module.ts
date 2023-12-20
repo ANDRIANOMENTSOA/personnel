@@ -8,7 +8,7 @@ import { ShardModule } from 'src/app/shard/shard.module';
 import { CompteComponent } from './compte/compte.component';
 import { SignatureComponent } from './signature/signature.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { SignaturePadModule } from '@ng-plus/signature-pad';
+import { NgSignatureModule } from 'ng-signature';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { SignaturePadModule } from '@ng-plus/signature-pad';
     CommonModule,
     PersonnelRoutingModule,
     ShardModule,
-    SignaturePadModule,
+    NgSignatureModule,
     MatDialogModule,
   ],
 })

@@ -34,6 +34,7 @@
     "express": "^4.18.1",
     "lodash": "^4.17.21",
     "ng-event-eunomia": "^0.0.1",
+    "ng-signature": "^1.0.0",
     "ngx-toastr": "^18.0.0",
     "path": "^0.12.7",
     "rxjs": "~7.5.0",
