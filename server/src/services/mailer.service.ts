@@ -63,7 +63,7 @@ export class MailerService {
       html: `
       <h2>${personnel.nom + ' ' + personnel.prenom},</h2>
       <p>Votre compte chez ergomada a été créé!</p>
-      <p style="text-align: center"><a href="https://ergomada.vercel.app/connexion/reset/${
+      <p style="text-align: center"><a href="https://ergomada.ajadi.mg/connexion/reset/${
         personnel.id
       }">Créer un mot de passe</a></p>
       <p>Cliquez le lien ci-dessus pour créer votre mot de passe.</p>
