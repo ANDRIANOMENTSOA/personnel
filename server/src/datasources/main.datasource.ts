@@ -1,7 +1,7 @@
 import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
 import {juggler} from '@loopback/repository';
 
-/*const config = {
+const config = {
   name: 'main',
   connector: 'mysql',
   url: '',
@@ -10,10 +10,10 @@ import {juggler} from '@loopback/repository';
   user: 'root',
   password: '',
   database: 'ergomada',
-};*/
+};
 
 // simafri
-const config = {
+/*const config = {
   name: 'main',
   connector: 'mysql',
   url: '',
@@ -23,6 +23,17 @@ const config = {
   password: 'ergo',
   database: 'ajadimg_ergomada',
 };
+
+const config = {
+  name: 'main',
+  connector: 'mysql',
+  url: '',
+  host: '192.101.68.56',
+  //port: 3306,
+  user: 'root',
+  password: 'root',
+  database: 'ergomada',
+};*/
 
 // Observe application's life cycle to disconnect the datasource when
 // application is stopped. This allows the application to be shut down
