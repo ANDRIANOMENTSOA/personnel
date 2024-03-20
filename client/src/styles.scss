@@ -53,20 +53,9 @@ body {
 
 .mat-mdc-row:hover {
   background-color: whitesmoke !important;
-
-  .buttonMenu {
-    display: inline-block;
-    margin-top: -15px;
-  }
-
-  .itemHide {
-    display: none;
-  }
 }
 
 .buttonMenu {
-  display: none;
-
   .mat-mdc-icon-button {
     padding: 0;
     min-width: 0;
