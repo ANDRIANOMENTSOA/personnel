@@ -13,8 +13,10 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Conge } from 'src/app/core/interfaces/conge';
+import { Personnel } from 'src/app/core/interfaces/personnel';
 import { AssetService } from 'src/app/core/services/asset.service';
 import { CongeService } from 'src/app/core/services/conge.service';
+import { PersonnelService } from 'src/app/core/services/personnel.service';
 
 @Component({
   selector: 'app-liste-conge',
@@ -31,24 +33,34 @@ export class ListeCongeComponent implements OnInit {
   @Input() personnelId: string | null | undefined;
   utilisateurEncour = sessionStorage.getItem('id');
 
+  currentUser!: Personnel
+
   constructor(
     private congeService: CongeService,
     private toastr: ToastrService,
     private router: Router,
     private translate: TranslateService,
-    private assetService: AssetService
+    private assetService: AssetService,
+    private personnelService: PersonnelService
   ) {
     this.dataSource = new MatTableDataSource<Conge>();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['newId']) {
-      this.getConge();
+      this.getCurrentUserAndConge()
     }
   }
 
   ngOnInit(): void {
-    this.getConge();
+    this.getCurrentUserAndConge()
+  }
+
+  getCurrentUserAndConge(){
+    this.personnelService.currentUser.subscribe((user) => {
+      this.currentUser = user
+      this.getConge();
+    });
   }
 
   getConge() {

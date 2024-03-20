@@ -73,7 +73,7 @@
           <app-accepter
             [info]="row.personnel.nom + ' ' + row.personnel.prenom"
             (accepter)="actionConge($event, row.id)"
-            *ngIf="row.statut === 'conge.EnAttente'"
+            *ngIf="row.statut === 'conge.EnAttente' && currentUser.direction"
           ></app-accepter>
         </div>
       </td>

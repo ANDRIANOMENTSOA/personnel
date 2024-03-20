@@ -1,8 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import {
+  UntypedFormBuilder,
+  UntypedFormControl,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
 import { Personnel } from '../interfaces/personnel';
 import { GenericCrudService } from './generic-crud.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,9 +19,17 @@ export class PersonnelService extends GenericCrudService<Personnel> {
     super();
   }
 
+  idPersonnel = sessionStorage.getItem('id');
+  currentUser: Observable<Personnel> = this.findById(
+    this.idPersonnel as string
+  );
+
   form(personnel?: Personnel) {
     return new UntypedFormGroup({
-      nom: new UntypedFormControl(personnel ? personnel.nom : '', Validators.required),
+      nom: new UntypedFormControl(
+        personnel ? personnel.nom : '',
+        Validators.required
+      ),
       prenom: new UntypedFormControl(
         personnel ? personnel.prenom : '',
         Validators.required
@@ -55,8 +69,13 @@ export class PersonnelService extends GenericCrudService<Personnel> {
         personnel ? personnel.fonctionId : '',
         Validators.required
       ),
-      direction: new UntypedFormControl(personnel ? personnel.direction : false),
-      soldeConge: new UntypedFormControl(personnel ? personnel.soldeConge : 0, Validators.required)
+      direction: new UntypedFormControl(
+        personnel ? personnel.direction : false
+      ),
+      soldeConge: new UntypedFormControl(
+        personnel ? personnel.soldeConge : 0,
+        Validators.required
+      ),
     });
   }
 
