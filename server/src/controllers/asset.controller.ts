@@ -26,7 +26,6 @@ import {AssetRepository} from '../repositories';
 import {FileProvider, FileStorageService} from '../services';
 import {RequestHandler} from 'express-serve-static-core';
 import mime from 'mime-types';
-import {authenticate} from '@loopback/authentication';
 
 export class AssetController {
   constructor(
@@ -37,27 +36,6 @@ export class AssetController {
     @service(FileStorageService)
     public fileStorage: FileStorageService,
   ) {}
-
-  /*@post('/assets')
-  @response(200, {
-    description: 'Asset model instance',
-    content: {'application/json': {schema: getModelSchemaRef(Asset)}},
-  })
-  async create(
-    @requestBody({
-      content: {
-        'application/json': {
-          schema: getModelSchemaRef(Asset, {
-            title: 'NewAsset',
-            exclude: ['id'],
-          }),
-        },
-      },
-    })
-    asset: Omit<Asset, 'id'>,
-  ): Promise<Asset> {
-    return this.assetRepository.create(asset);
-  }*/
 
   @post('/assets', {
     description:
