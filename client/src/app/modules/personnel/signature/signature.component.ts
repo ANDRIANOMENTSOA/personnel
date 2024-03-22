@@ -46,12 +46,12 @@ export class SignatureComponent implements OnInit {
     this.assetService.upload(files).subscribe((asset) => {
       const personnel = {
         id: this.id,
-        signatureAssetId: asset[0].id,
+        signatureAssetId: asset.id,
       };
       this.personnelService.update(personnel).subscribe(() => {
-        this.linkSignatureImage = this.assetService.assetUrl(asset[0].id);
+        this.linkSignatureImage = this.assetService.assetUrl(asset.id);
         this.toastr.success(this.translate.instant('signature.saved'));
-        const url = this.assetService.assetUrl(asset[0].id);
+        const url = this.assetService.assetUrl(asset.id);
         this.dialogRef.close(url);
       });
     });

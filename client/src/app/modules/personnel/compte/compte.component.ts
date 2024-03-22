@@ -19,6 +19,7 @@ export class CompteComponent implements OnInit {
   linkSignatureImage: string | undefined;
 
   compte!: Personnel;
+  showAvatar = false;
 
   ngOnInit(): void {
     const id = sessionStorage.getItem('id') ?? '';
@@ -26,6 +27,7 @@ export class CompteComponent implements OnInit {
       .findById(id, { include: [{ relation: 'fonction' }] })
       .subscribe((compte) => {
         this.compte = compte;
+        this.showAvatar = true;
         this.linkSignatureImage = this.assetService.assetUrl(
           this.compte.signatureAssetId ?? ''
         );

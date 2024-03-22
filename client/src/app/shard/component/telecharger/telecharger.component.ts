@@ -40,8 +40,7 @@ export class TelechargerComponent implements OnInit {
     this.file = files[0];
     this.assetsService.upload(files[0]).subscribe(
       (res) => {
-        console.log('res', res);
-        this.fileId.emit(res[0].id);
+        this.fileId.emit(res.id);
       },
       (err) => {
         console.log('err', err);

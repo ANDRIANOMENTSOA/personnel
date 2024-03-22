@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
@@ -20,6 +21,8 @@ export class PersonnelComponent implements OnInit {
   refrechId = '';
 
   fonction = this.fonctionService.find();
+
+  assetIdControl = this.formPersonnel.get('assetId') as FormControl;
 
   genres = [
     {
@@ -43,6 +46,10 @@ export class PersonnelComponent implements OnInit {
     },
   ];
 
+  assetIdPersonnelEdit!: string;
+  psedo!: string;
+  showAvatar= true;
+
   constructor(
     private personnelService: PersonnelService,
     private toastr: ToastrService,
@@ -57,8 +64,13 @@ export class PersonnelComponent implements OnInit {
       this.editId = param['id'];
       if (this.editId) {
         this.titleForm = 'personnel.modifier';
+
+        this.showAvatar= false;
         this.personnelService.findById(this.editId).subscribe((personnel) => {
+          this.assetIdPersonnelEdit = personnel.assetId;
+          this.psedo = personnel.nom;
           this.formPersonnel = this.personnelService.form(personnel);
+          this.showAvatar= true;
         });
       }
     });
@@ -66,6 +78,8 @@ export class PersonnelComponent implements OnInit {
 
   savePersonnel() {
     const personnel: Personnel = this.formPersonnel.value;
+    personnel.assetId = this.assetIdControl.value ?? null;
+
     if (this.editId) {
       this.personnelService.updateById(this.editId, personnel).subscribe(
         () => {

@@ -1,12 +1,20 @@
 <div class="row">
-  
-    <mat-card>
-      <mat-card-content>
-        <h4>{{ titleForm | translate }}</h4>
-        <form (submit)="savePersonnel()" [formGroup]="formPersonnel">
-
-          <div class="row">
+  <mat-card>
+    <mat-card-content>
+      <h4>{{ titleForm | translate }}</h4>
+      <form (submit)="savePersonnel()" [formGroup]="formPersonnel">
+        <div class="row">
           <div class="col-md-4">
+            <div style="margin-bottom: 10px">
+              <app-avatar
+                *ngIf="showAvatar"
+                size="xl"
+                [control]="assetIdControl"
+                [avatarAssetId]="assetIdPersonnelEdit"
+                [psedo]="psedo"
+              ></app-avatar>
+            </div>
+
             <mat-form-field class="full-width" appearance="fill">
               <mat-label>{{ "personnel.nom" | translate }}</mat-label>
               <input matInput formControlName="nom" />
@@ -25,14 +33,13 @@
               <mat-label>{{ "personnel.address" | translate }}</mat-label>
               <input matInput formControlName="address" />
             </mat-form-field>
+          </div>
 
+          <div class="col-md-4">
             <mat-form-field class="full-width" appearance="fill">
               <mat-label>{{ "personnel.telephone" | translate }}</mat-label>
               <input matInput formControlName="telephone" />
             </mat-form-field>
-          </div>
-
-          <div class="col-md-4">
             <mat-form-field class="full-width" appearance="fill">
               <mat-label>{{
                 "personnel.situation_familiale" | translate
@@ -71,15 +78,7 @@
                 </mat-option>
               </mat-select>
             </mat-form-field>
-            <mat-form-field class="full-width" appearance="fill">
-              <mat-label>{{
-                "personnel.info_complementaire" | translate
-              }}</mat-label>
-              <textarea
-                matInput
-                formControlName="info_complementaire"
-              ></textarea>
-            </mat-form-field>
+
             <mat-form-field class="full-width" appearance="fill">
               <mat-label>{{
                 "personnel.description_mission" | translate
@@ -120,24 +119,34 @@
               <mat-label>{{ "personnel.soldeConge" | translate }}</mat-label>
               <input matInput type="number" formControlName="soldeConge" />
             </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>{{
+                "personnel.info_complementaire" | translate
+              }}</mat-label>
+              <textarea
+                matInput
+                formControlName="info_complementaire"
+              ></textarea>
+            </mat-form-field>
           </div>
         </div>
 
-          <button
-            type="submit"
-            mat-raised-button
-            color="primary"
-            [disabled]="!formPersonnel.valid"
-          >
-            {{ "action.enregistrer" | translate }}
-          </button>
-        </form>
-      </mat-card-content>
-    </mat-card>
-  
-    <mat-card style="margin-top: 20px;">
-      <mat-card-content>
-        <app-liste-personnel [newId]="refrechId"></app-liste-personnel>
-      </mat-card-content>
-    </mat-card>
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          [disabled]="!formPersonnel.valid"
+        >
+          {{ "action.enregistrer" | translate }}
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card style="margin-top: 20px">
+    <mat-card-content>
+      <app-liste-personnel [newId]="refrechId"></app-liste-personnel>
+    </mat-card-content>
+  </mat-card>
 </div>

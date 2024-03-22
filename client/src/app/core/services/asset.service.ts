@@ -4,7 +4,7 @@ import { AnyObject } from '@loopback/filter/dist/types';
 import { ToastrService } from 'ngx-toastr';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Asset} from '../interfaces/asset';
+import { Asset } from '../interfaces/asset';
 import { GenericCrudService } from './generic-crud.service';
 
 @Injectable({
@@ -25,8 +25,8 @@ export class AssetService extends GenericCrudService<Asset> {
     const formData = new FormData();
     formData.append('file', file);
     return this.http
-      .post<Asset>(environment.apiBaseUrl + this.rootPath, formData)
-      .pipe(map((assets) => assets as unknown as Asset[]));
+      .post<Asset[]>(this.rootPath, formData)
+      .pipe(map((assets) => assets[0]));
   }
 
   telechargeFichier(assetId: string, attachment?: string) {

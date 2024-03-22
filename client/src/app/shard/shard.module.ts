@@ -26,6 +26,7 @@ import { AccepterComponent } from './component/accepter/accepter.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { AvatarComponent } from './component/avatar/avatar.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { NgModule } from '@angular/core';
     ToastrModule,
     MatPaginatorModule,
     MatMenuModule,
-    MatRadioModule
+    MatRadioModule,
+    AvatarComponent
   ],
   exports: [
     CommonModule,
@@ -88,7 +90,8 @@ import { NgModule } from '@angular/core';
     BoutonSupprimerComponent,
     TelechargerComponent,
     AccepterComponent,
-    MatRadioModule
+    MatRadioModule,
+    AvatarComponent
   ],
 })
 export class ShardModule {}

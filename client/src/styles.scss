@@ -78,7 +78,6 @@ body {
 .button-row {
   display: table-cell;
   width: 490px;
-
 }
 .button-row .mat-mdc-button-base {
   margin: 8px 8px 8px 0;
@@ -102,4 +101,8 @@ body {
 
 .label-lien:hover {
   cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }

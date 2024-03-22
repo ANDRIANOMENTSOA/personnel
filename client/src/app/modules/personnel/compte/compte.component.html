@@ -1,5 +1,14 @@
 <mat-card>
   <mat-card-content>
+    <div style="margin-bottom: 10px">
+      <app-avatar
+        *ngIf="showAvatar"
+        size="xl"
+        [readOnly]="true"
+        [avatarAssetId]="compte.assetId"
+        [psedo]="compte.nom"
+      ></app-avatar>
+    </div>
     <p>{{ "personnel.nom" | translate }}: {{ compte?.nom }}</p>
     <p>{{ "personnel.prenom" | translate }}: {{ compte?.prenom }}</p>
     <p>{{ "general.email" | translate }}: {{ compte?.email }}</p>

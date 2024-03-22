@@ -1,0 +1,21 @@
+<div
+  class="avatar"
+  [ngClass]="{
+    'avatar-xl': size === 'xl',
+    'avatar-lg': size === 'lg',
+    'avatar-md': size === 'md',
+    'avatar-sm': size === 'sm',
+    'avatar-xs': size === 'xs'
+  }"
+  (click)="uploadAvatar()"
+>
+  <img  *ngIf="showImageAvatar" [src]="urlAvatar" alt="Avatar Image" />
+  <span *ngIf="!showImageAvatar" class="uppercase">{{ triagram }}</span>
+  <input
+    type="file"
+    #fileUpload
+    accept="image/png , image/jpeg"
+    (change)="onFileSelected($event)"
+    class="hidden"
+  />
+</div>
