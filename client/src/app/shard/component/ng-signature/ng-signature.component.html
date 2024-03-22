@@ -1,0 +1,18 @@
+<mat-card>
+  <canvas
+    #canvas
+    (touchstart)="startDrawing($event)"
+    (touchmove)="moved($event)"
+    width="500"
+    height="200"
+  ></canvas>
+</mat-card>
+
+<div class="button-row">
+  <button (click)="clearPad()" mat-raised-button color="warn">
+    {{ "action.effacer" | translate }}
+  </button>
+  <button (click)="savePad()" mat-raised-button color="primary">
+    {{ "action.enregistrer" | translate }}
+  </button>
+</div>
