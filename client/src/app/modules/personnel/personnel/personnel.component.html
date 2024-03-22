@@ -1,107 +1,128 @@
 <div class="row">
-  <div class="col-md-4">
+  
     <mat-card>
       <mat-card-content>
         <h4>{{ titleForm | translate }}</h4>
         <form (submit)="savePersonnel()" [formGroup]="formPersonnel">
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label>{{ "personnel.nom" | translate }}</mat-label>
-            <input matInput formControlName="nom" />
-          </mat-form-field>
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label>{{ "personnel.prenom" | translate }}</mat-label>
-            <input matInput formControlName="prenom" />
-          </mat-form-field>
 
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label>{{ "general.email" | translate }}</mat-label>
-            <input matInput formControlName="email" />
-          </mat-form-field>
+          <div class="row">
+          <div class="col-md-4">
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>{{ "personnel.nom" | translate }}</mat-label>
+              <input matInput formControlName="nom" />
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>{{ "personnel.prenom" | translate }}</mat-label>
+              <input matInput formControlName="prenom" />
+            </mat-form-field>
 
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label>{{ "personnel.address" | translate }}</mat-label>
-            <input matInput formControlName="address" />
-          </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>{{ "general.email" | translate }}</mat-label>
+              <input matInput formControlName="email" />
+            </mat-form-field>
 
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label>{{ "personnel.telephone" | translate }}</mat-label>
-            <input matInput formControlName="telephone" />
-          </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>{{ "personnel.address" | translate }}</mat-label>
+              <input matInput formControlName="address" />
+            </mat-form-field>
 
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label>{{
-              "personnel.situation_familiale" | translate
-            }}</mat-label>
-            <mat-select formControlName="situation_familiale">
-              <mat-option
-                *ngFor="let situationFamiliale of situationFamiliales"
-                [value]="situationFamiliale.key"
-              >
-                {{ situationFamiliale.value }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>{{ "personnel.telephone" | translate }}</mat-label>
+              <input matInput formControlName="telephone" />
+            </mat-form-field>
+          </div>
 
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label>{{ "personnel.date_naissance" | translate }}</mat-label>
-            <input
-              matInput
-              [matDatepicker]="picker"
-              formControlName="date_naissance"
-            />
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+          <div class="col-md-4">
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>{{
+                "personnel.situation_familiale" | translate
+              }}</mat-label>
+              <mat-select formControlName="situation_familiale">
+                <mat-option
+                  *ngFor="let situationFamiliale of situationFamiliales"
+                  [value]="situationFamiliale.key"
+                >
+                  {{ situationFamiliale.value }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
 
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label>{{ "personnel.genre" | translate }}</mat-label>
-            <mat-select formControlName="genre">
-              <mat-option *ngFor="let genre of genres" [value]="genre.key">
-                {{ genre.value }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label>{{
-              "personnel.info_complementaire" | translate
-            }}</mat-label>
-            <textarea matInput formControlName="info_complementaire"></textarea>
-          </mat-form-field>
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label>{{
-              "personnel.description_mission" | translate
-            }}</mat-label>
-            <textarea matInput formControlName="description_mission"></textarea>
-          </mat-form-field>
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label>{{ "personnel.fonction" | translate }}</mat-label>
-            <mat-select formControlName="fonctionId">
-              <mat-option
-                *ngFor="let fonc of fonction | async"
-                [value]="fonc.id"
-              >
-                {{ fonc.nom }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label>{{ "personnel.membreDirection" | translate }}</mat-label>
-            <mat-select formControlName="direction">
-              <mat-option [value]="true">{{
-                "general.oui" | translate
-              }}</mat-option>
-              <mat-option [value]="false">{{
-                "general.non" | translate
-              }}</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field class="full-width" appearance="fill">
-            <mat-label>{{ "personnel.soldeConge" | translate }}</mat-label>
-            <input matInput type="number" formControlName="soldeConge" />
-          </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>{{
+                "personnel.date_naissance" | translate
+              }}</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                formControlName="date_naissance"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>{{ "personnel.genre" | translate }}</mat-label>
+              <mat-select formControlName="genre">
+                <mat-option *ngFor="let genre of genres" [value]="genre.key">
+                  {{ genre.value }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>{{
+                "personnel.info_complementaire" | translate
+              }}</mat-label>
+              <textarea
+                matInput
+                formControlName="info_complementaire"
+              ></textarea>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>{{
+                "personnel.description_mission" | translate
+              }}</mat-label>
+              <textarea
+                matInput
+                formControlName="description_mission"
+              ></textarea>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-4">
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>{{ "personnel.fonction" | translate }}</mat-label>
+              <mat-select formControlName="fonctionId">
+                <mat-option
+                  *ngFor="let fonc of fonction | async"
+                  [value]="fonc.id"
+                >
+                  {{ fonc.nom }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>{{
+                "personnel.membreDirection" | translate
+              }}</mat-label>
+              <mat-select formControlName="direction">
+                <mat-option [value]="true">{{
+                  "general.oui" | translate
+                }}</mat-option>
+                <mat-option [value]="false">{{
+                  "general.non" | translate
+                }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>{{ "personnel.soldeConge" | translate }}</mat-label>
+              <input matInput type="number" formControlName="soldeConge" />
+            </mat-form-field>
+          </div>
+        </div>
+
           <button
             type="submit"
             mat-raised-button
@@ -113,12 +134,10 @@
         </form>
       </mat-card-content>
     </mat-card>
-  </div>
-  <div class="col-md-8">
-    <mat-card>
+  
+    <mat-card style="margin-top: 20px;">
       <mat-card-content>
         <app-liste-personnel [newId]="refrechId"></app-liste-personnel>
       </mat-card-content>
     </mat-card>
-  </div>
 </div>
