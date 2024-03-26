@@ -12,3 +12,4 @@ export * from './personnel-asset.controller';
 export * from './conge-asset.controller';
 export * from './reglage.controller';
 export * from './authenticate.controller';
+export * from './paie.controller';

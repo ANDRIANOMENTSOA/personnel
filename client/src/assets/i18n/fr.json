@@ -48,6 +48,10 @@
     "membreDirection": "Membre de la direction",
     "soldeConge": "Solde de congé"
   },
+  "paie": {
+    "nouveaux": "Créer des fiches de paie",
+    "mois": "Mois"
+  },
   "conge": {
     "titre": "Congé",
     "nouveaux": "Demande congé",
@@ -63,8 +67,8 @@
     "AucunModelConge": "Aucun modèle de congé trouvé",
     "confirm": "Vous voulez valider le congé ?",
     "liste": "Liste Congé",
-    "miseAjour":"Misé a jour Congé",
-    "monListes":"Liste de mes congés"
+    "miseAjour": "Misé a jour Congé",
+    "monListes": "Liste de mes congés"
   },
   "reglage": {
     "titre": "Réglage",
@@ -72,12 +76,13 @@
     "modifier": "Modifier réglage",
     "nomSociete": "Nom société",
     "logo": "Logo société",
-    "modelConge": "Model congé"
+    "modelConge": "Model congé",
+    "modelPaie": "Model Paie"
   },
   "signature": {
     "dessiner": "Dessiner",
     "image": "Image",
     "telecharger": "Télécharger signature",
-    "saved":"Signature enregistrée"
+    "saved": "Signature enregistrée"
   }
 }

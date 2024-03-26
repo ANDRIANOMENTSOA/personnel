@@ -5,6 +5,7 @@ import { FonctionModule } from './modules/fonction/fonction.module';
 import { PersonnelModule } from './modules/personnel/personnel.module';
 import { ReglageModule } from './modules/reglage/reglage.module';
 import { NavigationComponent } from './navigation/navigation.component';
+import { PaieModule } from './modules/paie/paie.module';
 
 const routes: Routes = [
   {
@@ -38,6 +39,11 @@ const routes: Routes = [
       {
         path: 'reglage',
         loadChildren: () => ReglageModule,
+        canActivate: [AutguardGuard],
+      },
+      {
+        path: 'paie',
+        loadChildren: () => PaieModule,
         canActivate: [AutguardGuard],
       },
     ],

@@ -20,6 +20,12 @@ export class Reglage extends GenericModel {
   })
   model_conge: string;
 
+  @property({
+    type: 'string',
+    required: true,
+  })
+  model_paie: string;
+
   constructor(data?: Partial<Reglage>) {
     super(data);
   }

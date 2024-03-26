@@ -5,3 +5,4 @@ export * from './conge.model';
 export * from './asset.model';
 export * from './personnel-credential.model';
 export * from './reglage.model';
+export * from './paie.model';

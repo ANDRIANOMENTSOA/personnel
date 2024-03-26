@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Reglage } from '../interfaces/reglage';
 import { GenericCrudService } from './generic-crud.service';
 
@@ -15,21 +15,21 @@ export class ReglageService extends GenericCrudService<Reglage> {
 
   form(reglage?: Reglage) {
     return new UntypedFormGroup({
-      nom_societe: new UntypedFormControl(
+      nom_societe: new FormControl(
         reglage ? reglage.nom_societe : '',
         Validators.required
       ),
-      model_conge: new UntypedFormControl(
+      model_conge: new FormControl(
         reglage ? reglage.model_conge : '',
         Validators.required
       ),
-      logo: new UntypedFormControl(reglage ? reglage.logo : ''),
+      logo: new FormControl(reglage ? reglage.logo : ''),
     });
   }
 
   formMiseAjour() {
     return new UntypedFormGroup({
-      soldePlus: new UntypedFormControl(0, Validators.required),
+      soldePlus: new FormControl(0, Validators.required),
     });
   }
 

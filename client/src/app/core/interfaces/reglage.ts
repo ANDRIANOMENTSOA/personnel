@@ -5,4 +5,5 @@ export interface Reglage {
   nom_societe: string;
   logo: string;
   model_conge: string;
+  model_paie: string;
 }

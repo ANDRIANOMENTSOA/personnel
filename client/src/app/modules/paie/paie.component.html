@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-4">
+    <mat-card>
+      <mat-card-content>
+        <h4>{{ "paie.nouveaux" | translate }}</h4>
+        <form (submit)="SavePaie()" [formGroup]="formPaie">
+          <mat-form-field class="full-width" appearance="fill">
+            <mat-label>{{ "paie.mois" | translate }}</mat-label>
+            <input matInput formControlName="mois" /> </mat-form-field
+          ><br />
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            [disabled]="!formPaie.valid"
+          >
+            {{ "action.enregistrer" | translate }}
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="col-md-8">
+    <mat-card>
+      <mat-card-content>
+        <app-liste-paie [newId]="refrechId"></app-liste-paie>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

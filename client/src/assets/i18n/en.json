@@ -49,6 +49,10 @@
     "soldeConge": "Leave balance",
     "deconnexion": "Logout"
   },
+  "paie": {
+    "nouveaux": "Create pay slips",
+    "mois": "Month"
+  },
   "conge": {
     "titre": "Leave",
     "nouveaux": "Create congé",
@@ -73,7 +77,8 @@
     "modifier": "Change setting",
     "nomSociete": "Company Name",
     "logo": "Company logo",
-    "modelConge": "Model conge"
+    "modelConge": "Model conge",
+    "modelPaie": "Model Paie"
   },
   "signature": {
     "dessiner": "Draw",
