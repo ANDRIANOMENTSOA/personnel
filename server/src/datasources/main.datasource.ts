@@ -12,29 +12,6 @@ const config = {
   database: 'ergomada',
 };
 
-// simafri
-/*const config = {
-  name: 'main',
-  connector: 'mysql',
-  url: '',
-  host: '178.159.5.244',
-  //port: 3306,
-  user: 'ajadimg_ergomada',
-  password: 'ergo',
-  database: 'ajadimg_ergomada',
-};
-
-const config = {
-  name: 'main',
-  connector: 'mysql',
-  url: '',
-  host: '192.101.68.56',
-  //port: 3306,
-  user: 'root',
-  password: 'root',
-  database: 'ergomada',
-};*/
-
 // Observe application's life cycle to disconnect the datasource when
 // application is stopped. This allows the application to be shut down
 // gracefully. The `stop()` method is inherited from `juggler.DataSource`.
