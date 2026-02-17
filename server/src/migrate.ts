@@ -1,4 +1,5 @@
 import {ApiApplication} from './application';
+import { PersonnelRepository } from './repositories';
 
 export async function migrate(args: string[]) {
   const existingSchema = args.includes('--rebuild') ? 'drop' : 'alter';
@@ -7,6 +8,7 @@ export async function migrate(args: string[]) {
   const app = new ApiApplication();
   await app.boot();
   await app.migrateSchema({existingSchema});
+
 
   // Connectors usually keep a pool of opened connections,
   // this keeps the process running even after all work is done.
